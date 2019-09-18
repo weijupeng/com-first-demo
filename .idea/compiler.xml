@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="com.wjp.aop" />
+        <module name="com.wjp.api" />
+        <module name="com.wjp.common" />
+        <module name="com.wjp.dao" />
+        <module name="com.wjp.service" />
+        <module name="com.wjp.web" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="com-first-demo" options="-parameters" />
+      <module name="com.wjp.aop" options="-parameters" />
+      <module name="com.wjp.api" options="-parameters" />
+      <module name="com.wjp.common" options="-parameters" />
+      <module name="com.wjp.dao" options="-parameters" />
+      <module name="com.wjp.service" options="-parameters" />
+      <module name="com.wjp.web" options="-parameters" />
+    </option>
+  </component>
+</project>
