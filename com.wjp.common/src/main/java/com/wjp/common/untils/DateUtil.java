@@ -824,8 +824,8 @@ public class DateUtil {
     /**
      * LocalDateTime时间转换成字符串格式
      *
-     * @param localDateTime
-     * @param pattern
+     * @param localDateTime 时间
+     * @param pattern       时间格式
      *
      * @return
      */
