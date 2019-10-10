@@ -4,6 +4,9 @@ package com.wjp.service.system;
 import com.wjp.api.req.UserAddRequestDTO;
 import com.wjp.api.req.UserEditRequestDTO;
 import com.wjp.common.Result;
+import com.wjp.dao.entity.User;
+
+import java.util.List;
 
 /**
  * UserService
@@ -15,6 +18,7 @@ public interface UserService {
      * 查询用户
      *
      * @param userId 用户ID
+     *
      * @return Result
      */
     Result query(Long userId);
@@ -23,6 +27,7 @@ public interface UserService {
      * 新增用户
      *
      * @param dto 用户信息
+     *
      * @return Result
      */
     Result addUser(UserAddRequestDTO dto);
@@ -31,7 +36,16 @@ public interface UserService {
      * 新增用户
      *
      * @param dto 用户信息
+     *
      * @return Result
      */
     Result editUser(UserEditRequestDTO dto);
+
+    /**
+     * 获取用户列表
+     *
+     * @return List<User>
+     */
+    List<User> getUsers();
+
 }

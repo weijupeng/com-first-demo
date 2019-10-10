@@ -6,6 +6,8 @@ import com.wjp.dao.entity.User;
 import com.wjp.dao.mapper.UserMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * UserDao
  *
@@ -29,5 +31,9 @@ public class UserDao extends SuperDao<UserMapper, User> {
      */
     public void editUser(User user) {
         baseMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public List<User> getUsers() {
+        return baseMapper.getUsers();
     }
 }

@@ -4,6 +4,8 @@ package com.wjp.dao.mapper;
 import com.wjp.dao.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * UserMapper
  *
@@ -24,4 +26,7 @@ public interface UserMapper extends SupperMapper<User> {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> getUsers();
+
 }

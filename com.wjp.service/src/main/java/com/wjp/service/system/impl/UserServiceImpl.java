@@ -13,6 +13,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
      * 查询用户
      *
      * @param userId 用户ID
+     *
      * @return Result
      */
     @Override
@@ -46,6 +48,7 @@ public class UserServiceImpl implements UserService {
      * 新增用户
      *
      * @param dto 用户信息
+     *
      * @return Result
      */
     @Override
@@ -60,6 +63,7 @@ public class UserServiceImpl implements UserService {
      * 编辑用户
      *
      * @param dto 用户信息
+     *
      * @return Result
      */
     @Override
@@ -68,5 +72,10 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(dto, user);
         userDao.editUser(user);
         return Result.success();
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return userDao.getUsers();
     }
 }
