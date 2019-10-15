@@ -1,0 +1,10 @@
+POST http://localhost:8001/user/add
+
+<> 2019-10-14T043002.200.json
+
+###
+
+GET http://localhost:8001/user/query/{userId}
+
+###
+

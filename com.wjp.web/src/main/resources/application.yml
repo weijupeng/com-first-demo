@@ -45,7 +45,17 @@ spring:
       connection-properties: druid.stat.mergeSql=true;
       # 合并多个DruidDataSource的监控数据
       use-global-data-source-stat: true
-
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  cache:
+    ehcache:
+      config: "classpath:config/ehcache.xml"
 
 mybatis-plus:
   type-aliases-package: com.wjp.dao.entity
@@ -71,3 +81,4 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: countSql
+
