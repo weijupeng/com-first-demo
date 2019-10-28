@@ -33,6 +33,11 @@ public class UserDao extends SuperDao<UserMapper, User> {
         baseMapper.updateByPrimaryKeySelective(user);
     }
 
+    /**
+     * 获取用户列表
+     *
+     * @return List<User>
+     */
     public List<User> getUsers() {
         return baseMapper.getUsers();
     }
