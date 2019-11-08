@@ -81,6 +81,22 @@
             </if>
         </trim>
     </insert>
+    <insert id="insertUsers">
+        insert into t_user
+        (
+        user_name,
+        user_des,
+        age
+        )
+        values
+        <foreach collection="users" item="item" separator=",">
+            (
+            #{item.userName},
+            #{item.userDes},
+            #{item.age}
+            )
+        </foreach>
+    </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.wjp.dao.entity.User">
         update t_user
         <set>

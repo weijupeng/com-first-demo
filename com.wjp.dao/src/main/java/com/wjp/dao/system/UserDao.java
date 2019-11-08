@@ -6,6 +6,7 @@ import com.wjp.dao.entity.User;
 import com.wjp.dao.mapper.UserMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,5 +41,9 @@ public class UserDao extends SuperDao<UserMapper, User> {
      */
     public List<User> getUsers() {
         return baseMapper.getUsers();
+    }
+
+    public void insertUsers(ArrayList<User> users) {
+        baseMapper.insertUsers(users);
     }
 }

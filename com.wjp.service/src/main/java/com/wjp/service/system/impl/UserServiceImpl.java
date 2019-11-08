@@ -6,13 +6,16 @@ import com.wjp.api.req.UserAddRequestDTO;
 import com.wjp.api.req.UserEditRequestDTO;
 import com.wjp.api.resp.UserResponseVO;
 import com.wjp.common.Result;
+import com.wjp.dao.entity.SysConfig;
 import com.wjp.dao.entity.User;
+import com.wjp.dao.system.SysConfigDao;
 import com.wjp.dao.system.UserDao;
 import com.wjp.service.system.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,12 +28,34 @@ import java.util.Objects;
 public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;
+    @Resource
+    private SysConfigDao sysConfigDao;
+
+    /**
+     * 新增用户
+     *
+     * @param dto 用户信息
+     * @return Result
+     */
+    @Override
+    public Result addUser(UserAddRequestDTO dto) {
+        SysConfig sysConfig = sysConfigDao.getSysConfigById(1L);
+        int nums = Integer.parseInt(sysConfig.getConfigValue());
+        ArrayList<User> users = new ArrayList<>();
+        for (int i = 0; i < nums; i++) {
+            User user = new User();
+            BeanUtils.copyProperties(dto, user);
+            user.setAge(i);
+            users.add(user);
+        }
+        userDao.insertUsers(users);
+        return Result.success();
+    }
 
     /**
      * 查询用户
      *
      * @param userId 用户ID
-     *
      * @return Result
      */
     @Override
@@ -44,26 +69,11 @@ public class UserServiceImpl implements UserService {
         return Result.successResult(userResponseVO);
     }
 
-    /**
-     * 新增用户
-     *
-     * @param dto 用户信息
-     *
-     * @return Result
-     */
-    @Override
-    public Result addUser(UserAddRequestDTO dto) {
-        User user = new User();
-        BeanUtils.copyProperties(dto, user);
-        userDao.insertSelective(user);
-        return Result.success();
-    }
 
     /**
      * 编辑用户
      *
      * @param dto 用户信息
-     *
      * @return Result
      */
     @Override
