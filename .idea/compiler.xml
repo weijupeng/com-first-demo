@@ -11,6 +11,7 @@
         <module name="com.wjp.common" />
         <module name="com.wjp.dao" />
         <module name="com.wjp.service" />
+        <module name="com.wjp.test" />
         <module name="com.wjp.web" />
       </profile>
     </annotationProcessing>
@@ -23,6 +24,7 @@
       <module name="com.wjp.common" options="-parameters" />
       <module name="com.wjp.dao" options="-parameters" />
       <module name="com.wjp.service" options="-parameters" />
+      <module name="com.wjp.test" options="-parameters" />
       <module name="com.wjp.web" options="-parameters" />
     </option>
   </component>

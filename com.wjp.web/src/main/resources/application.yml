@@ -6,6 +6,11 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.qq.com
+    username: 275526034@qq.com
+    password: eaghumghtjuebjge
+    default-encoding: UTF-8
 mybatis-plus:
   type-aliases-package: com.wjp.dao.entity
   mapper-locations: "classpath:mapper/**/*Mapper.xml"

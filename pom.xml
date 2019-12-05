@@ -15,6 +15,7 @@
         <module>com.wjp.dao</module>
         <module>com.wjp.api</module>
         <module>com.wjp.aop</module>
+        <module>com.wjp.test</module>
     </modules>
 
     <parent>
@@ -32,6 +33,8 @@
         <spring.ldap.core.version>2.3.1.RELEASE</spring.ldap.core.version>
         <mybatis.plus.version>3.1.1</mybatis.plus.version>
         <jasypt.spring.boot.starter>2.1.0</jasypt.spring.boot.starter>
+        <spring-context-support.version>5.1.5.RELEASE</spring-context-support.version>
+        <spring-boot-starter-mail.version>2.1.2.RELEASE</spring-boot-starter-mail.version>
     </properties>
 
     <dependencies>
@@ -46,6 +49,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-mail</artifactId>
+                <version>${spring-boot-starter-mail.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.wjp</groupId>
                 <artifactId>com.wjp.common</artifactId>
@@ -82,7 +90,7 @@
             <dependency>
                 <groupId>org.springframework.ldap</groupId>
                 <artifactId>spring-ldap-core</artifactId>
-                <version>${spring-ldap-core.version}</version>
+                <version>${spring.ldap.core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
