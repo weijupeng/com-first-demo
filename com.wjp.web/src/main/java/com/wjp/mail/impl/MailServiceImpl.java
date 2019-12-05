@@ -11,6 +11,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
@@ -26,7 +27,7 @@ public class MailServiceImpl implements MailService {
     @Value("${spring.mail.username}")
     private String from;
 
-    @Autowired
+    @Resource
     private JavaMailSender mailSender;
 
     @Override
@@ -51,10 +52,12 @@ public class MailServiceImpl implements MailService {
         MimeMessageHelper helper;
         try {
             helper = new MimeMessageHelper(message, true);
-            helper.setFrom(from);
             helper.setTo(to);
+            helper.setCc("275526034@qq.com");
             helper.setSubject(subject);
-            helper.setText(content, true);//true代表支持html
+            helper.setFrom(from);
+            helper.setText(content, true);
+            //true代表支持html
             mailSender.send(message);
             logger.info("发送HTML邮件成功");
         } catch (MessagingException e) {
@@ -71,13 +74,14 @@ public class MailServiceImpl implements MailService {
         MimeMessageHelper helper;
         try {
             helper = new MimeMessageHelper(message, true);
-            helper.setFrom(from);
-            helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(content, true);
+            helper.setFrom(from);
+            helper.setTo(to);
             FileSystemResource file = new FileSystemResource(new File(filePath));
             String fileName = file.getFilename();
-            helper.addAttachment(fileName, file);//添加附件，可多次调用该方法添加多个附件  
+            helper.addAttachment(fileName, file);
+            //添加附件，可多次调用该方法添加多个附件
             mailSender.send(message);
             logger.info("发送带附件邮件成功");
         } catch (MessagingException e) {
@@ -101,7 +105,8 @@ public class MailServiceImpl implements MailService {
             helper.setSubject(subject);
             helper.setText(content, true);
             FileSystemResource res = new FileSystemResource(new File(rscPath));
-            helper.addInline(rscId, res);//重复使用添加多个图片
+            helper.addInline(rscId, res);
+            //重复使用添加多个图片
             mailSender.send(message);
             logger.info("发送带图片邮件成功");
         } catch (MessagingException e) {
