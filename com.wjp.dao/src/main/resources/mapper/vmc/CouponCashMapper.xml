@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjp.dao.dao.mapper.CouponCashMapper">
+    <resultMap id="BaseResultMap" type="com.wjp.dao.dao.entity.CouponCash">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="coupon_id" property="couponId" jdbcType="BIGINT"/>
+        <result column="coupon_value" property="couponValue" jdbcType="DECIMAL"/>
+        <result column="support_subjects" property="supportSubjects" jdbcType="VARCHAR"/>
+        <result column="high_limit_cash" property="highLimitCash" jdbcType="DECIMAL"/>
+        <result column="lower_limit_cash" property="lowerLimitCash" jdbcType="DECIMAL"/>
+        <result column="loan_periods" property="loanPeriods" jdbcType="VARCHAR"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
+    <insert id="insertSelective" parameterType="com.wjp.dao.dao.entity.CouponCash">
+        insert into t_coupon_cash
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="couponId != null">
+                coupon_id,
+            </if>
+            <if test="couponValue != null">
+                coupon_value,
+            </if>
+            <if test="supportSubjects != null">
+                support_subjects,
+            </if>
+            <if test="highLimitCash != null">
+                high_limit_cash,
+            </if>
+            <if test="lowerLimitCash != null">
+                lower_limit_cash,
+            </if>
+            <if test="loanPeriods != null">
+                loan_periods,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="couponId != null">
+                #{couponId,jdbcType=BIGINT},
+            </if>
+            <if test="couponValue != null">
+                #{couponValue,jdbcType=DECIMAL},
+            </if>
+            <if test="supportSubjects != null">
+                #{supportSubjects,jdbcType=VARCHAR},
+            </if>
+            <if test="highLimitCash != null">
+                #{highLimitCash,jdbcType=DECIMAL},
+            </if>
+            <if test="lowerLimitCash != null">
+                #{lowerLimitCash,jdbcType=DECIMAL},
+            </if>
+            <if test="loanPeriods != null">
+                #{loanPeriods,jdbcType=VARCHAR},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <select id="getByCouponId" resultType="com.wjp.dao.dao.entity.CouponCash">
+      select * from t_coupon_cash where coupon_id =#{couponId} and is_deleted = 0
+    </select>
+    <select id="getByCouponIds" resultType="com.wjp.dao.dao.entity.CouponCash">
+        select * from t_coupon_cash where is_deleted = 0 and coupon_id in
+        <foreach collection="couponIds" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

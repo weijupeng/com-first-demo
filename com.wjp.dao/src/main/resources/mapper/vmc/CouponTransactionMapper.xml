@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjp.dao.dao.mapper.CouponTransactionMapper" >
+  <resultMap id="BaseResultMap" type="com.wjp.dao.dao.entity.CouponTransaction" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="cust_coupon_id" property="custCouponId" jdbcType="BIGINT" />
+    <result column="transaction_type" property="transactionType" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="BIT" />
+  </resultMap>
+  <insert id="insertSelective" parameterType="com.wjp.dao.dao.entity.CouponTransaction" >
+    insert into t_coupon_transaction
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="custCouponId != null" >
+        cust_coupon_id,
+      </if>
+      <if test="transactionType != null" >
+        transaction_type,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="custCouponId != null" >
+        #{custCouponId,jdbcType=BIGINT},
+      </if>
+      <if test="transactionType != null" >
+        #{transactionType,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjp.dao.dao.mapper.CouponTransactionDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.wjp.dao.dao.entity.CouponTransactionDetails" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="coupon_transaction_id" property="couponTransactionId" jdbcType="BIGINT" />
+    <result column="cust_coupon_id" property="custCouponId" jdbcType="BIGINT" />
+    <result column="coupon_type" property="couponType" jdbcType="VARCHAR" />
+    <result column="coupon_name" property="couponName" jdbcType="VARCHAR" />
+    <result column="coupon_discount" property="couponDiscount" jdbcType="DECIMAL" />
+    <result column="coupon_value" property="couponValue" jdbcType="DECIMAL" />
+    <result column="high_limit_cash" property="highLimitCash" jdbcType="DECIMAL" />
+    <result column="lower_limit_cash" property="lowerLimitCash" jdbcType="DECIMAL" />
+    <result column="valid_period" property="validPeriod" jdbcType="INTEGER" />
+    <result column="loan_periods" property="loanPeriods" jdbcType="VARCHAR" />
+    <result column="support_subjects" property="supportSubjects" jdbcType="VARCHAR" />
+    <result column="support_product_code" property="supportProductCode" jdbcType="VARCHAR" />
+    <result column="valid_type" property="validType" jdbcType="TINYINT" />
+    <result column="valid_time_range" property="validTimeRange" jdbcType="VARCHAR" />
+    <result column="valid_days" property="validDays" jdbcType="INTEGER" />
+    <result column="coupon_deadline_date" property="couponDeadlineDate" jdbcType="VARCHAR" />
+    <result column="distribute_type" property="distributeType" jdbcType="TINYINT" />
+    <result column="is_deleted" property="isDeleted" jdbcType="BIT" />
+  </resultMap>
+  <insert id="insertSelective" parameterType="com.wjp.dao.dao.entity.CouponTransactionDetails" >
+    insert into t_coupon_transaction_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="couponTransactionId != null" >
+        coupon_transaction_id,
+      </if>
+      <if test="custCouponId != null" >
+        cust_coupon_id,
+      </if>
+      <if test="couponType != null" >
+        coupon_type,
+      </if>
+      <if test="couponName != null" >
+        coupon_name,
+      </if>
+      <if test="couponDiscount != null" >
+        coupon_discount,
+      </if>
+      <if test="couponValue != null" >
+        coupon_value,
+      </if>
+      <if test="highLimitCash != null" >
+        high_limit_cash,
+      </if>
+      <if test="lowerLimitCash != null" >
+        lower_limit_cash,
+      </if>
+      <if test="validPeriod != null" >
+        valid_period,
+      </if>
+      <if test="loanPeriods != null" >
+        loan_periods,
+      </if>
+      <if test="supportSubjects != null" >
+        support_subjects,
+      </if>
+      <if test="supportProductCode != null" >
+        support_product_code,
+      </if>
+      <if test="validType != null" >
+        valid_type,
+      </if>
+      <if test="validTimeRange != null" >
+        valid_time_range,
+      </if>
+      <if test="validDays != null" >
+        valid_days,
+      </if>
+      <if test="couponDeadlineDate != null" >
+        coupon_deadline_date,
+      </if>
+      <if test="distributeType != null" >
+        distribute_type,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponTransactionId != null" >
+        #{couponTransactionId,jdbcType=BIGINT},
+      </if>
+      <if test="custCouponId != null" >
+        #{custCouponId,jdbcType=BIGINT},
+      </if>
+      <if test="couponType != null" >
+        #{couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="couponName != null" >
+        #{couponName,jdbcType=VARCHAR},
+      </if>
+      <if test="couponDiscount != null" >
+        #{couponDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="couponValue != null" >
+        #{couponValue,jdbcType=DECIMAL},
+      </if>
+      <if test="highLimitCash != null" >
+        #{highLimitCash,jdbcType=DECIMAL},
+      </if>
+      <if test="lowerLimitCash != null" >
+        #{lowerLimitCash,jdbcType=DECIMAL},
+      </if>
+      <if test="validPeriod != null" >
+        #{validPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="loanPeriods != null" >
+        #{loanPeriods,jdbcType=VARCHAR},
+      </if>
+      <if test="supportSubjects != null" >
+        #{supportSubjects,jdbcType=VARCHAR},
+      </if>
+      <if test="supportProductCode != null" >
+        #{supportProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="validType != null" >
+        #{validType,jdbcType=TINYINT},
+      </if>
+      <if test="validTimeRange != null" >
+        #{validTimeRange,jdbcType=VARCHAR},
+      </if>
+      <if test="validDays != null" >
+        #{validDays,jdbcType=INTEGER},
+      </if>
+      <if test="couponDeadlineDate != null" >
+        #{couponDeadlineDate,jdbcType=VARCHAR},
+      </if>
+      <if test="distributeType != null" >
+        #{distributeType,jdbcType=TINYINT},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

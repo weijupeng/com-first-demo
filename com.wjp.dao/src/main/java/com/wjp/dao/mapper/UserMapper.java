@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2019/9/17
  */
 @Mapper
-public interface UserMapper extends SupperMapper<User> {
+public interface UserMapper extends SuperMapper<User> {
 
     int deleteByPrimaryKey(Long id);
 

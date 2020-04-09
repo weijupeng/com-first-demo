@@ -1,5 +1,7 @@
 package com.wjp.service.thread;
 
+import javax.xml.ws.Service;
+
 /**
  * @author wjp
  * @date 2019/11/11 14:48
@@ -30,4 +32,5 @@ public class Factory {
     public Person getPerson() {
         return new Person();
     }
+
 }

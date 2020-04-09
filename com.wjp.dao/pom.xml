@@ -27,5 +27,9 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis.plus.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.wjp</groupId>
+            <artifactId>com.wjp.common</artifactId>
+        </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjp.dao.dao.mapper.EnumCodeMapper">
+  <resultMap id="BaseResultMap" type="com.wjp.dao.dao.entity.EnumCode">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="enum_name" jdbcType="VARCHAR" property="enumName" />
+    <result column="code_value" jdbcType="VARCHAR" property="codeValue" />
+    <result column="code_type" jdbcType="TINYINT" property="codeType" />
+    <result column="code_name" jdbcType="VARCHAR" property="codeName" />
+    <result column="code_description" jdbcType="VARCHAR" property="codeDescription" />
+    <result column="code_attribute" jdbcType="VARCHAR" property="codeAttribute" />
+    <result column="sort_no" jdbcType="SMALLINT" property="sortNo" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <insert id="insertSelective" parameterType="com.wjp.dao.dao.entity.EnumCode">
+    insert into t_code_code
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="enumName != null">
+        enum_name,
+      </if>
+      <if test="codeValue != null">
+        code_value,
+      </if>
+      <if test="codeType != null">
+        code_type,
+      </if>
+      <if test="codeName != null">
+        code_name,
+      </if>
+      <if test="codeDescription != null">
+        code_description,
+      </if>
+      <if test="codeAttribute != null">
+        code_attribute,
+      </if>
+      <if test="sortNo != null">
+        sort_no,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="enumName != null">
+        #{enumName,jdbcType=VARCHAR},
+      </if>
+      <if test="codeValue != null">
+        #{codeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="codeType != null">
+        #{codeType,jdbcType=TINYINT},
+      </if>
+      <if test="codeName != null">
+        #{codeName,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDescription != null">
+        #{codeDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="codeAttribute != null">
+        #{codeAttribute,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNo != null">
+        #{sortNo,jdbcType=SMALLINT},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

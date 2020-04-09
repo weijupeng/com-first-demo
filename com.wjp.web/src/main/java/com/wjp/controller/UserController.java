@@ -28,7 +28,7 @@ public class UserController {
     @PostMapping("/update")
     public Result update(@RequestParam("file") MultipartFile file) {
         String name = file.getName();
-        log.error("name:{}", name);
+        log.error("userName:{}", name);
         return null;
     }
 

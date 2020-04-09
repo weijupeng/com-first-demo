@@ -11,6 +11,7 @@ import com.wjp.dao.system.UserDao;
 import com.wjp.service.system.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 import java.util.Objects;
@@ -33,10 +34,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Result query(Long userId) {
-        User user = userDao.getById(userId);
-        if (Objects.isNull(user)) {
-            throw new UserException("用户不存在");
-        }
+        User user = null;
+        Assert.isTrue(Objects.nonNull(user),"sdad");
         UserResponseVO userResponseVO = new UserResponseVO();
         BeanUtils.copyProperties(user, userResponseVO);
         return Result.successResult(userResponseVO);

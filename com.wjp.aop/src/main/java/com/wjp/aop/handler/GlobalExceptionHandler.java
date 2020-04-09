@@ -7,11 +7,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author weijupeng
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = CodeException.class)
     public Result defaultErrorHandler(HttpServletRequest req, CodeException e) throws Exception {
         Result error = Result.valueOf("9999", e.getMessage());
         return error;
+    }
+
+
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    public Result IllegalArgumentExceptionHandler(HttpServletRequest req, IllegalArgumentException e) {
+        return Result.error("9999", e.getMessage());
+
     }
 }

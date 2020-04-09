@@ -58,7 +58,7 @@ public class Result<T> extends BaseModel {
     }
 
     public static Result error(String code, String message) {
-        return new Result(code, message);
+        return new Result(false,code, message);
     }
 
 
